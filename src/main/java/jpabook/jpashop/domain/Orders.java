@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "ORDERS")
-public class Order {
+public class Orders {
     @Id @GeneratedValue
     @Column(name="ORDER_ID")
     private Long id;
@@ -21,11 +21,11 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "orders")
     private List<OrderItem> orderItems = new ArrayList<>();
 
     @OneToOne
-    @JoinColumn(name = "DELIVERY_ID")
+    @JoinColumn(name = "DELIVERY_ID" , unique = true)
     private Delivery delivery;
 
     /**

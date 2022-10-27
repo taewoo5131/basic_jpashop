@@ -9,10 +9,6 @@ public class Delivery {
     @Column(name = "DELIVERY_ID")
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "ORDER_ID")
-    private Order order;
-
     private String city;
 
     private String zipcode;
