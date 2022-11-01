@@ -12,7 +12,7 @@ public class Orders {
     @Column(name="ORDER_ID")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
 
@@ -24,7 +24,7 @@ public class Orders {
     @OneToMany(mappedBy = "orders")
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY , cascade = CascadeType.ALL)
     @JoinColumn(name = "DELIVERY_ID" , unique = true)
     private Delivery delivery;
 
